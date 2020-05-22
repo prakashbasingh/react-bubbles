@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <section>
-        <h1>React-Bubble</h1>
+        <h1 to= "/">React-Bubble</h1>
         <div className="App">
           <Route exact path="/" component={Login} />
           {/* Build a PrivateRoute component that will display BubblePage when you're authenticated  */}
