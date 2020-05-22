@@ -1,5 +1,26 @@
 import React from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from"styled-components"
+
+
+
+
+const LoginForm = styled.div`
+display: flex;
+color: blue;
+`
+
+const Button = styled.button`
+margin: 2rem;
+width: 200px;
+background: orange;
+color: green;
+&:hover{
+  background: green;
+  color: orange;
+}
+`
+
 
 
 class Login extends React.Component {
@@ -26,7 +47,7 @@ class Login extends React.Component {
     axiosWithAuth()
       .post("/api/login", this.state.credentials)
       .then(res => {
-        console.log(res.data, 'wWWWWWWWWWWWWhat we have here???!!!!????')
+        console.log(res.data, 'wWWWWWWWWWWWWhatttttttttt we have here???!!!!????')
         localStorage.setItem("token", res.data.payload);
         this.props.history.push("/protected");
       })
@@ -37,19 +58,24 @@ class Login extends React.Component {
   render() {
     return (
       <form onSubmit={this.login}>
-        <input
-          type="text"
-          name="username"
-          value={this.state.credentials.username}
-          onChange={this.changeHandler}
-        />
-        <input
-          type="password"
-          name="password"
-          value={this.state.credentials.password}
-          onChange={this.changeHandler}
-        />
-      <button>Log in</button>
+        <LoginForm>
+           <label>Username</label>
+            <input
+              type="text"
+              name="username"
+              value={this.state.credentials.username}
+              onChange={this.changeHandler}
+            />
+          <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.credentials.password}
+              onChange={this.changeHandler}
+            />
+        </LoginForm>
+    
+      <Button>Log in</Button>
     </form>
     );
   }
