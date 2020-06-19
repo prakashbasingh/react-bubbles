@@ -17,10 +17,12 @@ const Login = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axiosWithAuth().post("/login", login)
+    axiosWithAuth()
+    .post("/login", login)
     .then(res => {
       console.log(res, "what we have here")
       localStorage.setItem("token", res.data.payload)
+      props.history.push("/bubblePage")
     })
     .catch(error => {
       console.log(error, " err err err err err")
