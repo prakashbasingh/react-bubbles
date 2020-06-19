@@ -6,7 +6,7 @@ const initialColor = {
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colors, updateColors, setUpdate }) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
@@ -26,6 +26,7 @@ const ColorList = ({ colors, updateColors }) => {
       console.log(res, "PUT Request Response")
       updateColors(colors)
       setEditing(false)
+      setUpdate(true)
     })
     .catch(error => {
       console.log(error, " Ok!!! so We Have Error")

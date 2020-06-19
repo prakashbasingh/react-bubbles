@@ -1,5 +1,29 @@
 import React, {useState} from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth"
+import styled from "styled-components"
+
+const FormContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+box-shadow: 0 0 5px 2px forestgreen;
+font-size: 20px;
+background:forestgreen;
+color: red; 
+margin: 0 10rem;
+height: 45px;
+`
+const Button= styled.button`
+margin: 0 2rem;
+width: 200px;
+background: orange;
+&:hover{
+  font-size: 20px;
+  font-weight: bold;
+  background: gold;
+  color: red;
+}
+`
 
 const Login = (props) => {
   // make a post request to retrieve a token from the api
@@ -31,25 +55,25 @@ const Login = (props) => {
   }
   return (
     <>
-      <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
       <form onSubmit={handleSubmit}>
-      <label>Username</label>
-          <input className= "input"
-                  type= "text"
-                  name= "username"
-                  value= {props.username}
-                  onChange={handleChange}
-        />
+        <FormContainer>
+          <label>Username</label>
+              <input className= "input"
+                      type= "text"
+                      name= "username"
+                      value= {props.username}
+                      onChange={handleChange}
+            />
 
-      <label>Password</label>
-          <input className="input"
-              type= "password"
-              name= "password"
-              value= {props.password}
-              onChange={handleChange}
-          />
-      <button className="start">Login</button>
+          <label>Password</label>
+              <input className="input"
+                  type= "password"
+                  name= "password"
+                  value= {props.password}
+                  onChange={handleChange}
+              />
+          <Button >Login</Button>
+        </FormContainer>
       </form>
     </>
   );
