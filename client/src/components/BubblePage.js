@@ -8,6 +8,7 @@ const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
   console.log(colorList, 'Do we HAve Color????????????????')
 
+
   // fetch your colors data from the server when the component mounts
   // set that data to the colorList state property
 
@@ -17,6 +18,7 @@ const BubblePage = () => {
     .then((res) => {
       console.log(res, "? / ? / ?  What res We Hae Here")
       setColorList(res.data)
+   
     })
     .catch((error) => {
       console.log(error, "? ? ? error ? ? ?")
@@ -29,7 +31,6 @@ const BubblePage = () => {
       <ColorList colors={colorList} updateColors={setColorList} />
       <Bubbles colors={colorList} />
     </>
-  );
-};
+  );};
 
 export default BubblePage;
