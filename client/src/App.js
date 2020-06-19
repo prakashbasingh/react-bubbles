@@ -44,6 +44,9 @@ function App() {
           <div>
             <Link  to = "/" style = {{color: "white"}}> Log out</Link>
           </div>
+          <div>
+            <Link to ="/bubblePage" style = {{color: "white"}}> Bubble Page </Link>
+          </div>
         </Navigator>
         <Switch>
           <div >
